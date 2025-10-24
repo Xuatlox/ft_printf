@@ -5,7 +5,7 @@ OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(SRC)
+$(NAME) : $(SRC) libft.a
 	$(CC) -c $(SRC)
 	ar -rcs $(NAME) $(OBJ)
 
@@ -16,3 +16,7 @@ fclean : clean
 	rm -rf $(NAME)
 
 re : fclean $(NAME)
+
+libft.a :
+	cd libft
+	make fclean | make | make clean
