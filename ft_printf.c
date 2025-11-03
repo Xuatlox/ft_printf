@@ -6,13 +6,11 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 11:06:40 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/11/03 12:42:42 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/11/03 16:07:39 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "libft/libft.h"
+#include "ft_printf.h"
 
 static int	ft_putnbr_unsigned(unsigned int nb)
 {
@@ -60,7 +58,7 @@ static int	ft_putnbr_hex(unsigned int nbr, int ind)
 static int	ft_conversion(va_list args, const char spec)
 {
 	if (spec == 'c')
-	 	return (write(1, va_arg(args, char *), 1));
+	 	return (ft_putchar_fd(va_arg(args, int), 1));
 	if (spec == 's')
 	 	return (ft_putstr_fd(va_arg(args, char *), 1));
 	if (spec == 'p')
@@ -74,7 +72,7 @@ static int	ft_conversion(va_list args, const char spec)
 	if (spec == 'X')
 	 	return (ft_putnbr_hex(va_arg(args, int), 1));
 	if (spec == '%')
-	 	return (write(1, "%", 1));
+	 	return (ft_putchar_fd('%', 1));
 	return (0);
 }
 
@@ -106,10 +104,4 @@ int ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (ret);
-}
-
-int main()
-{
-	printf("%d\n", printf("%%\n", 42));
-	printf("%d\n", ft_printf("%%\n", 42));
 }

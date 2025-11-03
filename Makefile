@@ -2,6 +2,7 @@ SRC = ./ft_printf.c
 CFLAGS += -Wall -Werror -Wextra
 NAME = libftprintf.a
 OBJ = $(SRC:.c=.o)
+.PHONY : all clean fclean re
 
 all : $(NAME)
 
@@ -18,5 +19,4 @@ fclean : clean
 re : fclean $(NAME)
 
 libft.a :
-	cd libft
-	make fclean | make | make clean
+	cd libft && make fclean && make && make clean
