@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 15:51:33 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/11/05 16:43:47 by ansimonn         ###   ########.fr       */
+/*   Created: 2025/10/16 12:24:16 by ansimonn          #+#    #+#             */
+/*   Updated: 2025/11/03 16:02:01 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
-#include "libft/libft.h"
-#include <stdarg.h>
+# include <unistd.h>
 
-int ft_printf(const char *format, ...) __attribute__ ((format (printf, 1, 2)));
+size_t	ft_strlen(const char *s);
+int		ft_putstr_fd(char *s, int fd);
+int		ft_putnbr_fd(int n, int fd);
+int		ft_putchar_fd(char c, int fd);
 
 #endif

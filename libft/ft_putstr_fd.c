@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 15:51:33 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/11/05 16:43:47 by ansimonn         ###   ########.fr       */
+/*   Created: 2025/10/21 18:40:45 by ansimonn          #+#    #+#             */
+/*   Updated: 2025/11/05 10:52:19 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <stdarg.h>
+int	ft_putstr_fd(char *s, int fd)
+{
+	int	ret;
 
-int ft_printf(const char *format, ...) __attribute__ ((format (printf, 1, 2)));
-
-#endif
+	if (s)
+	{
+		ret = (int) write(1, s, ft_strlen(s));
+		return (ret);
+	}
+	ret = write(fd, "(null)", 6);
+	return (ret);
+}

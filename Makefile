@@ -1,17 +1,21 @@
 SRC = ./ft_printf.c
 CFLAGS += -Wall -Werror -Wextra
 NAME = libftprintf.a
+LIBFT_NAME = libft.a
+LIBFT_DIR = libft
 OBJ = $(SRC:.c=.o)
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re libft.a
 
 all : $(NAME)
 
-$(NAME) : $(SRC) libft.a
+$(NAME) : $(SRC) $(LIBFT_NAME)
 	$(CC) -c $(SRC)
-	ar -rcs $(NAME) $(OBJ)
+	ar -rc $(LIBFT_DIR)/$(LIBFT_NAME) $(OBJ)
+	mv $(LIBFT_DIR)/$(LIBFT_NAME) $(NAME)
 
 clean :
-	rm -rf *.o
+	make -C $(LIBFT_DIR) clean
+	rm -rf $(OBJ)
 
 fclean : clean
 	rm -rf $(NAME)
@@ -19,4 +23,4 @@ fclean : clean
 re : fclean $(NAME)
 
 libft.a :
-	cd libft && make fclean && make && make clean
+	make -C $(LIBFT_DIR)
