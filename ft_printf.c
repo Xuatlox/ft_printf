@@ -6,12 +6,11 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 11:06:40 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/11/06 11:10:10 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/11/06 14:54:44 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 #include <stdio.h>
 
 static int	ft_putnbr_unsigned(unsigned int nb)
@@ -97,22 +96,17 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		if (*format == '%')
+		tmp = 1;
+		if (*format == '%' && *(format + 1))
 		{
-			if (!format[1])
-				return (ret);
-			format++;
-			tmp = ft_conversion(args, *format);
+			tmp = ft_conversion(args, *(++format));
 			if (tmp == -1)
 				return (tmp);
-			ret += tmp;
 		}
-		else
-		{
+		else if (*format != '%')
 			if (write(1, format, 1) == -1)
 				return (-1);
-			ret++;
-		}
+		ret += tmp;
 		format++;
 	}
 	va_end(args);
