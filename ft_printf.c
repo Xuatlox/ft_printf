@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 11:06:40 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/11/05 16:41:12 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/11/06 11:10:10 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 #include <stdio.h>
 
-static int ft_putnbr_unsigned(unsigned int nb)
+static int	ft_putnbr_unsigned(unsigned int nb)
 {
-	char digit;
-	int ret;
+	char	digit;
+	int		ret;
 
 	ret = 0;
 	if (nb > 9)
@@ -30,10 +30,10 @@ static int ft_putnbr_unsigned(unsigned int nb)
 	return (ret + 1);
 }
 
-static int ft_puthex(unsigned long int nbr, int maj)
+static int	ft_puthex(unsigned long int nbr, int maj)
 {
-	char conv;
-	int ret;
+	char	conv;
+	int		ret;
 
 	ret = 0;
 	if (nbr > 15)
@@ -49,9 +49,9 @@ static int ft_puthex(unsigned long int nbr, int maj)
 	return (ret + 1);
 }
 
-static int ft_putadr(unsigned long int nbr)
+static int	ft_putadr(unsigned long int nbr)
 {
-	int ret;
+	int	ret;
 
 	if (nbr == 0)
 	{
@@ -64,7 +64,7 @@ static int ft_putadr(unsigned long int nbr)
 	return (ret);
 }
 
-static int ft_conversion(va_list args, const char spec)
+static int	ft_conversion(va_list args, const char spec)
 {
 	if (spec == 'c')
 		return (ft_putchar_fd(va_arg(args, int), 1));
@@ -85,11 +85,11 @@ static int ft_conversion(va_list args, const char spec)
 	return (0);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	int ret;
-	int tmp;
+	va_list	args;
+	int		ret;
+	int		tmp;
 
 	ret = 0;
 	if (!format)
@@ -117,10 +117,4 @@ int ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (ret);
-}
-
-int	main()
-{
-	ft_printf("%d 42%\n");
-	printf("%d 42%\n");
 }
