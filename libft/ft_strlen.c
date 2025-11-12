@@ -6,15 +6,15 @@
 /*   By: ansimonn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 11:34:43 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/10/23 17:03:31 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/11/12 13:04:18 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i])

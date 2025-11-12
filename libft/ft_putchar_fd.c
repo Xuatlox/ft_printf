@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:43:59 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/11/07 15:06:41 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/11/12 13:10:13 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd, int *ret)
 {
-	ret += write(fd, &c, 1);
+	*ret += write(fd, &c, 1);
 }

@@ -6,21 +6,22 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:40:45 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/11/07 14:22:32 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/11/12 15:31:01 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd, int *ret)
 {
-	int	ret;
-
-	if (s)
+	if (!s)
 	{
-		ret = write(fd, s, ft_strlen(s));
-		return (ret);
+		ft_putstr_fd("(null)", fd, ret);
+		return ;
 	}
-	ret = write(fd, "(null)", 6);
-	return (ret);
+	while (*s)
+	{
+		ft_putchar_fd(*s, fd, ret);
+		s++;
+	}
 }
